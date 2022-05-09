@@ -1,7 +1,10 @@
-function App() {
+import Navbar from "./components/navbar";
+
+
+function App() {   // o componente react é uma função do javascript
   return (
-    <h1>Página Principal</h1>
-  );
+    <Navbar/>
+  )
 }
 
 export default App;

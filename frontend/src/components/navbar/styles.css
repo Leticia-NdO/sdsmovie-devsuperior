@@ -1,0 +1,30 @@
+header {
+    background-color: var(--color-primary);  /*para que a cor seja aplicada em todo o header*/
+    height: 60px;
+    display: flex;
+    align-items: center;
+}
+.dsmovie-nav-content{
+    display: flex;   /*para que os conteúdos fiquem um do lado do outro*/
+    justify-content: space-between;  /* para que os elementos fiquem um em cada canto do espaço*/
+    align-items: center;
+    color: #fff;
+}
+
+.dsmovie-nav-content h1 {  /*assim para acessar uma tag dentro de uma classe*/
+    margin: 0;
+    font-weight: 700;
+    font-size: 24px;
+}
+
+.dsmovie-contact-container {
+    display: flex;
+    align-items: center;
+}
+
+.dsmovie-contact-link{
+    margin: 0;
+    color: #fff;
+    margin-left: 10px;
+    font-size: 12px;
+}
