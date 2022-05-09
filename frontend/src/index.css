@@ -1,0 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap');   /*importando a fonte Open Sans do google*/
+
+:root {
+  --color-primary: #4D41C0;   /*definindo a cor primária do projeto*/
+}
+
+* { /*todos os elementos html*/
+  box-sizing: border-box;  /*faz com que o espaçamento interno de um componente e a borda dele não ocupem espaço a mais do que o definido*/
+  font-family: 'Open Sans', sans-serif;  /*diz que todos os elementos terão a fonte open sans*/
+}
+
+html,
+body {
+  background-color: #E8E8E8;
+}
+
+a,
+a:hover {
+  text-decoration: none;
+  color: unset;
+}
