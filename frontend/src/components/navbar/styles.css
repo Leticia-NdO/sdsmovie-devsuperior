@@ -1,5 +1,5 @@
 header {
-    background-color: var(--color-primary);  /*para que a cor seja aplicada em todo o header*/
+    background-color: var(--color-primary);  /*para que a cor seja aplicada em todo o header. Se usa uma variável porque se a cor for mudada, a alteração só precisa ser feita em um arquivo*/
     height: 60px;
     display: flex;
     align-items: center;

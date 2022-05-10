@@ -1,7 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap');   /*importando a fonte Open Sans do google*/
+/*aqui se definem configurações de estilo gerais para o site*/
 
 :root {
-  --color-primary: #4D41C0;   /*definindo a cor primária do projeto*/
+  --color-primary: #4D41C0;   /*criando uma variável definindo a cor primária do projeto*/
 }
 
 * { /*todos os elementos html*/

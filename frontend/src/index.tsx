@@ -9,6 +9,6 @@ const root = ReactDOM.createRoot(
 );
 root.render(
   <React.StrictMode>
-    <App />   {/* vai sedr renderizado o componente app*/}
+    <App />   {/* vai ser renderizado o componente app (que contém todos os componentes do site)*/}
   </React.StrictMode>
 );
