@@ -11,7 +11,7 @@ function Form() {
     return (
         <div className="dsmovie-form-container">   {/* cria o container da página */}
 
-            <img className="dsmovie-movie-card-image" src={movie.image} alt={movie.title} />
+            <img className="dsmovie-movie-card-image" src={movie.image} alt={movie.title} />  {/* faz com que  */}
 
             <div className="dsmovie-card-bottom-container">
 
