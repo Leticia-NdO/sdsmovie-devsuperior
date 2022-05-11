@@ -19,16 +19,3 @@ function App() {  // o componente react é uma função do javascript
 
 export default App;   // só o app vai ser exportado, mas ele vai conter todos os componentes que o site precisará
 
-
-
-
-// import Navbar from "./components/navbar";
-
-
-// function App() {   
-//   return (
-//     <Navbar/>    
-//   )
-// }
-
-// export default App;
