@@ -2,7 +2,7 @@ package com.devsuperior.dsmovie.config;
 
 import java.util.Arrays;
 
-import org.hibernate.cfg.Environment;
+import org.springframework.core.env.Environment;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -21,11 +21,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
 
 	@Autowired
-	private Environment environmet;
+	private Environment environment;
 
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
-		if (Arrays.asList(environmet.getActiveProfiles()).contains("test")) {
+		if (Arrays.asList(environment.getActiveProfiles()).contains("test")) {
 			http.headers().frameOptions().disable();
 		}
 		
