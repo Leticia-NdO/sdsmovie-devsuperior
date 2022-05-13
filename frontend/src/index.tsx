@@ -7,8 +7,8 @@ import App from './App';
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement  // dentro do elemento com id root
 );
+
+// vai ser renderizado o componente app (que contém todos os componentes do site
 root.render(
-  <React.StrictMode>
-    <App />   {/* vai ser renderizado o componente app (que contém todos os componentes do site)*/}
-  </React.StrictMode>
+    <App />   
 );
