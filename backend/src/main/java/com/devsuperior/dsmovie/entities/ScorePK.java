@@ -11,11 +11,11 @@ public class ScorePK implements Serializable {  // Serializable é uma interface
 
     // em uma tabela auxiliar, as chaves estrangeiras representam a chave primária dessa tabela, ou seja, é uma chave primária composta. No java, a gente precisa criar uma classe auxiliar que armazenará esses dois valores e depois usá-la como chave primária na tabela auxiliar
     
-    @ManyToOne
+    @ManyToOne   // muitas avaliações para um filme
     @JoinColumn(name = "movie_id")  // indica que é uma columa com chave estrangeira
     private Movie movie;
 
-    @ManyToOne
+    @ManyToOne  // muitos usuários avaliando um filme
     @JoinColumn(name = "user_id")
     private User user;
     

@@ -1,10 +1,14 @@
 package com.devsuperior.dsmovie.entities;
 
 
+import java.util.HashSet;
+import java.util.Set;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 
@@ -21,6 +25,12 @@ public class Movie {
     private Double score;
     private Integer count;
     private String image;
+
+
+    @OneToMany(mappedBy = "id.movie") // um filme para várias avaliações. Esse mappedBy indica qual coluna vai determinar a coleção dentro da tabela scores. O o id do filme tá localizado em scores pelo id e dentro do id (no ScorePK) no movie, por isso id.movie
+    private Set<Score> scores = new HashSet<>();  // criando uma referência para a coleção de todas as avaliações de um certo filme. A coleção set é uma interface, se instancia uma interface chamando uma classe responsável por instanciar essa interface.
+
+
 
     // Constructors
     public Movie() {
@@ -75,6 +85,14 @@ public class Movie {
 
     public void setImage(String image) {
         this.image = image;
+    }
+
+    public Set<Score> getScores() {
+        return scores;
+    }
+
+    public void setScores(Set<Score> scores) {
+        this.scores = scores;
     }
 
 }
