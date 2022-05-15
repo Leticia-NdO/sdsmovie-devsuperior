@@ -8,7 +8,7 @@ import { BASE_URL } from "utils/requests";
 
 function Listing() {
 
-    const [pageNumber, setPageNumber] = useState(2)   // useState serve para armazenar estados dentro do componente. O primeiro item da lista é a variável e o segundo é a função que serve para manipular essa variável. O primeira parâmetro de useState é o valor da variável
+    const [pageNumber, setPageNumber] = useState(0)   // useState serve para armazenar estados dentro do componente. O primeiro item da lista é a variável e o segundo é a função que serve para manipular essa variável. O primeira parâmetro de useState é o valor da variável
 
     const [page, setPage] = useState<MoviePage>({
         content: [],

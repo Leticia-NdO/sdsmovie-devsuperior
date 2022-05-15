@@ -1,14 +1,17 @@
-import axios from 'axios';
-import { Link } from 'react-router-dom';
+import axios, { AxiosRequestConfig } from 'axios';
+import { Link, useNavigate } from 'react-router-dom';
 import './styles.css'
 import { BASE_URL } from "utils/requests";
 import { useEffect, useState } from 'react';
+import { validateEmail } from 'utils/validate';
 
 type Props = {
     movieId: string;
 }
 
 function FormCard({ movieId }: Props) {
+
+    const navigate = useNavigate()
 
     const [movie, setMovie] = useState({
         id: 0,
@@ -20,10 +23,37 @@ function FormCard({ movieId }: Props) {
 
     useEffect(()=>{
         axios.get(`${BASE_URL}/movies/${movieId}`).then((response)=>{
-            console.log(response.data)
             setMovie(response.data)
         })
     }, [movieId])
+
+    const handleSubmit = (event: React.FormEvent<HTMLFormElement>)=>{
+        event.preventDefault()  // impede que a página seja recarregada
+
+        const email = (event.target as any).email.value;
+        const score = (event.target as any).score.value;   // esses email e score são os ids dos campos do formulário
+
+        if (!validateEmail(email)){
+            return;
+        }
+
+        const config: AxiosRequestConfig = {
+            baseURL: BASE_URL,
+            method: 'PUT',
+            url: '/scores',
+            data: {
+                email: email,
+                movieId: movieId,
+                score: score
+            }
+        }
+
+        axios(config).then((response)=>{
+            console.log(response.data)
+            navigate('/')
+        })
+
+    }
 
     return (
         <div className="dsmovie-form-container">   {/* cria o container da página */}
@@ -34,7 +64,7 @@ function FormCard({ movieId }: Props) {
 
                 <h3>{movie.title}</h3>
 
-                <form className="dsmovie-form">
+                <form className="dsmovie-form" onSubmit={handleSubmit}>
 
                     <div className="form-group dsmovie-form-group">
                         <label htmlFor="email">Informe seu email</label>

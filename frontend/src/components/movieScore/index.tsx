@@ -1,6 +1,4 @@
-import axios from "axios"
 import MovieStars from "components/movieStars"
-import { useEffect } from "react"
 import './styles.css'
 
 type Props = {
