@@ -8,7 +8,7 @@ import { BASE_URL } from "utils/requests";
 
 function Listing() {
 
-    const [pageNumber, setPageNumber] = useState(0)   // useState serve para armazenar estados dentro do componente. O primeiro item da lista é a variável e o segundo é a função que serve para manipular essa variável. O primeira parâmetro de useState é o valor da variável
+    const [pageNumber, setPageNumber] = useState(2)   // useState serve para armazenar estados dentro do componente. O primeiro item da lista é a variável e o segundo é a função que serve para manipular essa variável. O primeira parâmetro de useState é o valor da variável
 
     const [page, setPage] = useState<MoviePage>({
         content: [],
@@ -25,20 +25,25 @@ function Listing() {
     useEffect(() => {
         axios.get(`${BASE_URL}/movies?size=12&page=${pageNumber}`).then(response => {
             const data = response.data as MoviePage;
+            setPageNumber(data.number)
             setPage(data);
         })
     }, [pageNumber])  // o useEffect xecuta algo na instanciação ou destruição do componente e observa estado. Ele recebe dois parâmetros, uma função e uma lista de objetos que vai observar. Sempre que um desses objetos sofrer uma alteração, ele vai executar a função. Se a lista estiver vazia ele só executa a função quando o componente for carregado. Nesse caso, quando mudar o pageNumber ele vai refazer essa função e3 atualizar a página.
 
+    const handlePageChange = (newPageNumber: number) => {
+        setPageNumber(newPageNumber)
+    }
+
     return (
         <>  {/* a função que é um componente react só pode exportar um componente, mas é ó colocar entre uma div ou um fragmente que ele aceita */}
-            <Pagination />
+            <Pagination page={page} onChange={handlePageChange}/>
             <div className="container">
                 <div className="row">
                     {page.content.map(movie => (
-                            <div key={movie.id} className="col-sm-6 col-lg-4 col-xl-3 mb-3">  {/* o grid system do bootstrap divide a tela em 12 colunas padrão, ao dizer sm (small) 6, eu digo que essa coluna deve ocupar 6 desses espaços, ou seja, metade da tela. O mb-3 (margin bottom) coloca uma pequena margem abaixo do objeto*/}
-                                <MovieCard movie={movie} />    {/* aqui eu digo que o argumento do MovieCard, o parâmetro movie, é o objeto movie ali de cima */}
-                            </div>
-                        )
+                        <div key={movie.id} className="col-sm-6 col-lg-4 col-xl-3 mb-3">  {/* o grid system do bootstrap divide a tela em 12 colunas padrão, ao dizer sm (small) 6, eu digo que essa coluna deve ocupar 6 desses espaços, ou seja, metade da tela. O mb-3 (margin bottom) coloca uma pequena margem abaixo do objeto*/}
+                            <MovieCard movie={movie} />    {/* aqui eu digo que o argumento do MovieCard, o parâmetro movie, é o objeto movie ali de cima */}
+                        </div>
+                    )
                     )}
                     <div />
 
