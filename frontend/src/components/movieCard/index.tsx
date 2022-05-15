@@ -1,15 +1,12 @@
 import MovieScore from "components/movieScore"
 import { Link } from "react-router-dom";
+import { Movie } from "types/movie";
 
-function MovieCard() {
+type Props = {
+    movie: Movie;
+}
 
-    const movie = {
-        id: 1,
-        image: "https://www.themoviedb.org/t/p/w533_and_h300_bestv2/jBJWaqoSCiARWtfV0GlqHrcdidd.jpg",
-        title: "The Witcher",
-        count: 2,
-        score: 4.5
-    };
+function MovieCard({ movie }: Props) {  // Props podem ser entendidas como argumentos do componente React. Aqui, e estabeleço que o MovieCard precisa de um parâmetro do tipo Movie.
 
     return (
         <div>
