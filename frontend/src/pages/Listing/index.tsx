@@ -29,14 +29,6 @@ function Listing() {
         })
     }, [pageNumber])  // o useEffect xecuta algo na instanciação ou destruição do componente e observa estado. Ele recebe dois parâmetros, uma função e uma lista de objetos que vai observar. Sempre que um desses objetos sofrer uma alteração, ele vai executar a função. Se a lista estiver vazia ele só executa a função quando o componente for carregado. Nesse caso, quando mudar o pageNumber ele vai refazer essa função e3 atualizar a página.
 
-
-    const movie = {
-        id: 1,
-        image: "https://www.themoviedb.org/t/p/w533_and_h300_bestv2/jBJWaqoSCiARWtfV0GlqHrcdidd.jpg",
-        title: "The Witcher",
-        count: 2,
-        score: 4.5
-    };
     return (
         <>  {/* a função que é um componente react só pode exportar um componente, mas é ó colocar entre uma div ou um fragmente que ele aceita */}
             <Pagination />
